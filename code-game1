@@ -36,7 +36,7 @@ class Die(Scene):
         print Death.quips[randint(0, len(self.quips)-1)]
         exit(1)
 
-class CentralCorridor(Scene):
+class blank(Scene):
 
     def enter(self):
         print ""
@@ -75,7 +75,7 @@ class CentralCorridor(Scene):
             print ""
             return ''
 
-class LaserWeaponArmory(Scene):
+class blank(Scene):
 
     def enter(self):
             print ""
@@ -106,7 +106,7 @@ class LaserWeaponArmory(Scene):
 
 
 
-class TheBridge(Scene):
+class blank(Scene):
 
     def enter(self):
         print ""
@@ -138,7 +138,7 @@ class TheBridge(Scene):
             return ""
 
 
-class EscapePod(Scene):
+class blank(Scene):
 
     def enter(self):
         print ""
