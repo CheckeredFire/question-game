@@ -1,0 +1,199 @@
+# use this to fill in your game
+from sys import exit
+from random import randint
+
+class Scene(object):
+    def enter(self):
+        print ""
+        exit(1)
+
+class Engine(object):
+
+    def __init__(self, scene_map):
+        self.scene_map = scene_map
+
+    def play(self):
+        current_scene = self.scene_map.opening_scene()
+        last_scene = self.scene_map.next_scene('finished')
+
+        while current_scene != last_scene:
+            next_scene_name = current_scene.enter()
+            current_scene = self.scene_map.next_scene(next_scene_name)
+
+        
+        current_scene.enter()
+
+class Die(Scene):
+
+    quips = [
+        "",
+         ""
+         "",
+         ""
+    ]
+
+    def enter(self):
+        print Death.quips[randint(0, len(self.quips)-1)]
+        exit(1)
+
+class CentralCorridor(Scene):
+
+    def enter(self):
+        print ""
+        print ""
+        print ""
+        print ""
+        print ""
+        print "\n" # new line
+        print ""
+        print ""
+       
+
+        action = raw_input("> ")
+
+        if action == "":
+            print ""
+            print ""
+            print ""
+            print ""
+            print ""
+            print ""
+            return ''
+
+        elif action == "":
+            print ""
+            print ""
+            print ""
+            print ""
+            return ''
+
+        elif action == "":
+            print ""
+            return ''
+
+        else:
+            print ""
+            return ''
+
+class LaserWeaponArmory(Scene):
+
+    def enter(self):
+            print ""
+            print ""
+            print ""
+            print ""
+            code = "%d" % (randint(1,9))
+            guess = raw_input("[keypad]> ")
+            guesses = 0
+
+            while (guess != code) and guesses < 9:
+                print ""
+                guesses += 1
+                guess = raw_input("[keypad]> ")
+
+                if (guess == code):
+                    print ""
+                    print ""
+                    print ""
+                    return ''
+
+                else:
+                    print ""
+                    print ""
+                    print ""
+                    print ""
+                    return ''
+
+
+
+class TheBridge(Scene):
+
+    def enter(self):
+        print ""
+        print ""
+        print ""
+        print ""
+        print ""
+        print ""
+
+        action = raw_input("> ")
+
+        if action == "":
+            print ""
+            print ""
+            print ""
+            print ""
+            print ""
+            print ""
+            return ''
+
+        elif action == "":
+            print ""
+            print ""
+            print ""
+            print ""
+            return ''
+        else:
+            print ""
+            return ""
+
+
+class EscapePod(Scene):
+
+    def enter(self):
+        print ""
+        print ""
+        print ""
+        print ""
+        print ""
+
+        good_rat = randint(1,5)
+        guess = raw_input("[rat #]> ")
+
+
+        if int(guess) != good_rat:
+            print "" % guess
+            print ""
+            print ""
+            print ""
+            return ''
+        else:
+            print "" % guess
+            print ""
+            print ""
+            print ""
+            print ""
+            return ''
+
+class Done(Scene):
+
+    def enter(self):
+        print ""
+        return 'done'
+
+class Map(object):
+
+    scenes = {
+        '': (),
+        '': (),
+        '': (),
+        '': (),
+        '': (),
+        '': (),
+    }
+
+    def __init__(self, start_scene):
+        self.start_scene = start_scene
+
+    def next_scene(self, scene_name):
+        val = Map.scenes.get(scene_name)
+        return val
+
+    def opening_scene(self):
+        return self.next_scene(self.start_scene)
+
+a_map = Map('')
+a_game = Engine(a_map)
+a_game.play()
+
+#remember, the blank lines are for you to enter your code
